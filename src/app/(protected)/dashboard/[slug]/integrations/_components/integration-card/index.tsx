@@ -13,6 +13,13 @@ type Props = {
     strategy: "INSTAGRAM" | "CRM"
 }
 
+type INTEGRATION = {
+  id: string;
+  name: "INSTAGRAM";
+  token: string;
+  expiresAt: Date | null;
+}
+
 const IntegrationCard = ({title, description, icon, strategy}: Props) => {
 
   const onInstaOAuth = ()=> onOAuthInstagram(strategy);
@@ -22,7 +29,7 @@ const IntegrationCard = ({title, description, icon, strategy}: Props) => {
     queryFn: onUserInfo
   });
 
-  const integrated = data?.data?.integrations.find((integration)=>integration.name === strategy)
+  const integrated = data?.data?.integrations.find((integration: INTEGRATION)=>integration.name === strategy)
 
   return (
     <div className='border-2 border-[#3352CC] rounded-2xl gap-x-5 p-5 flex items-center justify-between'>
