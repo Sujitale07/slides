@@ -10,7 +10,7 @@ const MetricsCard = (props: Props) => {
     return current + next.listener?.commentCount!
   }, 0)
 
-  const dms = data?.data?.reduce((current, next) => {
+  const dms = data?.data?.reduce((current : number, next) => {
     return current + next.listener?.dmCount!
   }, 0)
 
