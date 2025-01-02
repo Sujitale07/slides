@@ -103,6 +103,15 @@ export const getKeywordPost = async (postId: string, automationId: string) => {
   })
 }
 
+type Chat = {
+  id: string; 
+  createdAt: Date; 
+  senderId: string | null; 
+  reciever: string | null;
+  message: string | null; 
+  automationId: string | null; 
+}
+
 export const getChatHistory = async (sender: string, reciever: string) => {
   const history = await client.dms.findMany({
     where: {
@@ -113,7 +122,7 @@ export const getChatHistory = async (sender: string, reciever: string) => {
   const chatSession: {
     role: 'assistant' | 'user'
     content: string
-  }[] = history.map((chat) => {
+  }[] = history.map(( chat : Chat) => {
     return {
       role: chat.reciever ? 'assistant' : 'user',
       content: chat.message!,
