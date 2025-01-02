@@ -4,13 +4,25 @@ import React from 'react'
 
 type Props = {}
 
+type ListenerNext = {
+    listener: {
+        listener: "SMARTAI" | "MESSAGE";
+        id: string;
+        commentCount: number;
+        automationId: string;
+        prompt: string;
+        commentReply: string | null;
+        dmCount: number;
+    } | null;
+}
+
 const MetricsCard = (props: Props) => {
   const { data } = useQueryAutomations()
-  const comments: number | undefined = data?.data.reduce((current : number, next) => {
+  const comments: number | undefined = data?.data.reduce((current : number, next: ListenerNext) => {
     return current + next.listener?.commentCount!
   }, 0)
 
-  const dms = data?.data?.reduce((current : number, next) => {
+  const dms = data?.data?.reduce((current : number, next: ListenerNext) => {
     return current + next.listener?.dmCount!
   }, 0)
 
