@@ -3,7 +3,7 @@ import { NextResponse } from 'next/server';
 import Stripe from 'stripe';
 
 // Initialize Stripe instance
-const stripe = new Stripe(process.env.STRIPE_CLIENT_SECRET as string, {
+export const stripe = new Stripe(process.env.STRIPE_CLIENT_SECRET as string, {
     apiVersion: "2024-12-18.acacia", // Use the version mentioned in the error
 });
 
