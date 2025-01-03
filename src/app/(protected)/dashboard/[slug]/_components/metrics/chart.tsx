@@ -18,11 +18,12 @@ type ListenerNext = {
 
 const MetricsCard = (props: Props) => {
   const { data } = useQueryAutomations()
-  const comments: number | undefined = data?.data.reduce((current : number, next: ListenerNext) => {
+
+  const comments: number | undefined | string= data?.data.reduce((current : number, next: ListenerNext) => {
     return current + next.listener?.commentCount!
   }, 0)
 
-  const dms = data?.data?.reduce((current : number, next: ListenerNext) => {
+  const dms : number | undefined | string = data?.data?.reduce((current : number, next: ListenerNext) => {
     return current + next.listener?.dmCount!
   }, 0)
 
