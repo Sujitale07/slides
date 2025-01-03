@@ -1,4 +1,4 @@
-import { AutomationDuoToneWhite } from "@/icons/automation-duo-tone";
+
 import { AutomationDuoToneBlue } from "@/icons/automation-duotone-blue";
 import { ContactsDuoToneBlue } from "@/icons/contact-duotone-blue";
 import { HomeDuoToneBlue } from "@/icons/home-duotone-blue";
