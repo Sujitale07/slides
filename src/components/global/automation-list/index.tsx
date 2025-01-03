@@ -9,17 +9,44 @@ import { useQueryAutomations } from '@/hooks/user-queries'
 import CreateAutomation from '../create-automation'
 import { useMutationDataState } from '@/hooks/use-mutation-data'
 
+type Keyword = {
+  id: string;
+  word: string;
+};
+
+type QueryResponse = {
+  status: number;
+  data: Automation[];
+};
+
+type Listener = {
+  listener: string;
+};
+
+type Automation = {
+  id: string;
+  name: string;
+  keywords: Keyword[];
+  createdAt: Date;
+  listener?: Listener;
+};
+
+type OptimisticUiData = {
+  data: Automation[];
+};
+
+
 type Props = {}
 
 const AutomationList = (props: Props) => {
-  const { data } = useQueryAutomations();
+  const { data } = useQueryAutomations() ;
 
   console.log("Data",data)
 
   const { latestVariable } = useMutationDataState(['create-automation'])
   const { pathname } = usePaths()
   
-  const optimisticUiData = useMemo(() => {
+  const optimisticUiData = useMemo(() => {-
     if (latestVariable?.status === "success" && latestVariable.variables && data) {
       return { data: [latestVariable.variables, ...data.data] };
     }
@@ -39,7 +66,7 @@ const AutomationList = (props: Props) => {
 
   return (
     <div className="flex flex-col gap-y-3">
-      {optimisticUiData.data!.map((automation) => (
+      {optimisticUiData.data!.map((automation : any) => (
         <Link
           href={`${pathname}/${automation.id}`}
           key={automation.id}
