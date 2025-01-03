@@ -31,7 +31,7 @@ const ActiveTrigger = ({keywords, type}: Props) => {
         </p>
         <div className='flex gap-2 mt-5 flex-wrap'>
             {
-                keywords?.map((word)=>{
+                keywords?.map((word: any)=>{
                     return <div key={word.id}
                         className='bg-gradient-to-br from-[#3352CC] to-[#1c2D70] flex items-center gap-x-2 capitalize text-white font-light py-1 px-4 rounded-full'
                     >

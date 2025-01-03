@@ -53,7 +53,7 @@ const Trigger = ({ id }: Props) => {
   return (
     <TriggerButton label="Add Trigger">
       <div className="flex flex-col gap-y-2">
-        {AUTOMATION_TRIGGERS.map((trigger) => (
+        {AUTOMATION_TRIGGERS.map((trigger: any) => (
           <div
             key={trigger.id}
             onClick={() => onSetTrigger(trigger.type)}

@@ -11,9 +11,15 @@ type Props = {
     id: string;
 }
 
+type Trigger =  {
+    id: string;
+    type: string;
+    automationId: string | null;
+}
+
 const ThenNode = ({id}: Props) => {
     const { data } = useQueryAutomation(id)
-    const commentTrigger = data?.automation?.trigger.find(trigger => trigger.type === 'COMMENT')
+    const commentTrigger = data?.automation?.trigger.find((trigger:Trigger)  => trigger.type === 'COMMENT')
 
     return !data?.automation?.listener ? null : (
         <div className='flex flex-col gap-y-3 w-full lg:w-10/12 relative xl:w-6/12 p-5 rounded-xl bg-[#1d1d1d] shadow-md'>

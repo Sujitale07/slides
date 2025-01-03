@@ -60,7 +60,7 @@ const PaymentCard = ({ label, landing, current }: Props) => {
           <p className="text-xl mb-2">Free</p>
         )}
 
-        {PLANS[label === 'PRO' ? 1 : 0].features.map((i) => (
+        {PLANS[label === 'PRO' ? 1 : 0].features.map((i:string | number) => (
           <p
             key={i}
             className="mt-2 text-muted-foreground flex gap-2 "

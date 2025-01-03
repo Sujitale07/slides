@@ -24,7 +24,7 @@ const Page = (props: Props) => {
                 </div>
                 <div className="flex flex-col gap-y-5">
                     {
-                        [1,2,3].map((item)=>{
+                        [1,2,3].map((item: number)=>{
                             return <div className='flex justify-between items-start' key={item}>
                                 <div className="flex flex-col">
                                     <h3 className="font-medium">

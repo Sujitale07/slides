@@ -12,7 +12,7 @@ const Page = (props: Props) => {
   return (
     <div className="flex flex-col gap-y-5">
       <div className="flex gap-5 lg:flex-row flex-col">
-        {DASHBOARD_CARDS.map((card) => (
+        {DASHBOARD_CARDS.map((card: any) => (
           <DoubleGradientCard
             key={card.id}
             {...card}

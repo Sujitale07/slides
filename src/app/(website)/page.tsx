@@ -113,7 +113,7 @@ export default function Home() {
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 mt-8 md:grid-cols-2 md:gap-8">
-            {plans.map((plan, index) => (
+            {plans.map((plan : any, index: number ) => (
               <Card
                 key={index}
                 className="flex flex-col justify-between"
@@ -130,7 +130,7 @@ export default function Home() {
                     </span>
                   </div>
                   <ul className="space-y-2">
-                    {plan.features.map((feature, i) => (
+                    {plan.features.map((feature: any, i: number) => (
                       <li
                         key={i}
                         className="flex items-center"

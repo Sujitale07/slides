@@ -25,7 +25,7 @@ const ThenAction = ({ id }: Props) => {
   return (
     <TriggerButton label="Then">
       <div className="flex flex-col gap-y-2 ">
-        {AUTOMATION_LISTENERS.map((listener) =>
+        {AUTOMATION_LISTENERS.map((listener: any) =>
           listener.type === 'SMARTAI' ? (
             <SubscriptionPlan
               key={listener.type}
